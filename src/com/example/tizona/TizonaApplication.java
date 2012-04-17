@@ -2,9 +2,8 @@ package com.example.tizona;
 
 import java.util.ResourceBundle;
 
-import org.vaadin.jouni.animator.AnimatorProxy;
-
 import com.example.tizona.screen.LoginScreen;
+import com.example.tizona.screen.TizonaWindow;
 import com.vaadin.Application;
 
 public class TizonaApplication extends Application {
@@ -21,7 +20,8 @@ public class TizonaApplication extends Application {
 	// setTheme("chameleon-vaadin");
 
 	// Redirect to login screen
-	setMainWindow(new LoginScreen());
+	setMainWindow(new TizonaWindow());
+//	getMainWindow().setContent(new LoginScreen());
 
     }
 

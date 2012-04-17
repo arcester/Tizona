@@ -2,16 +2,13 @@ package com.example.tizona.screen;
 
 import java.util.ResourceBundle;
 
+import org.vaadin.jouni.animator.AnimatorProxy;
 import org.vaadin.jouni.animator.AnimatorProxy.Animation;
-import org.vaadin.jouni.animator.AnimatorProxy.AnimationEvent;
-import org.vaadin.jouni.animator.AnimatorProxy.AnimationListener;
 
 import com.example.tizona.TizonaApplication;
 import com.vaadin.terminal.gwt.client.ui.AlignmentInfo.Bits;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.Label;
@@ -19,33 +16,36 @@ import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
+import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Button.ClickListener;
 
-public class LoginScreen extends CustomComponent {
+public class TizonaWindow extends Window {
 
     // Common objects
+    private AnimatorProxy proxy = new AnimatorProxy();
     private TizonaApplication app;
 
     private Window subwindow;
 
     private Animation animationFromButton;
 
-    public LoginScreen() {
+    public TizonaWindow() {
 
 	// Initialize
 	app = (TizonaApplication) getApplication();
 	ResourceBundle tizonaStrings = ResourceBundle.getBundle("tizona-strings");
 
-	VerticalLayout mainLayout = new VerticalLayout();
-	mainLayout.setImmediate(false);
-	mainLayout.setWidth("100%");
-	mainLayout.setHeight("100%");
-	mainLayout.setMargin(false);
-	setCompositionRoot(mainLayout);
+	// Initialize the "effects proxy"
+	this.addComponent(proxy);
 
-	setWidth("100.0%");
-	setHeight("100.0%");
+	// Aplication
+	setCaption(tizonaStrings.getString("tizona.application"));
+
+	showLogin(tizonaStrings);
 	
-	mainLayout.addComponent(new Label("login"));
+    }
+    
+    private void showLogin(ResourceBundle tizonaStrings) {
 
 	// Create the subwindow
 	subwindow = new Window(tizonaStrings.getString("tizona.login.titulo"));
@@ -101,16 +101,16 @@ public class LoginScreen extends CustomComponent {
 //	});
 
 	// Add the window to the screen
-	app.getMainWindow();
-	getWindow().addWindow(subwindow);
-
+	addWindow(subwindow);
+	
     }
 
     private void doLogin() {
 //	app.getMainWindow().removeAllComponents();
 	System.out.println("hola");
+	removeWindow(subwindow);
 //	app.
-//	app.getMainWindow().setContent(new MainScreen());
+	setContent(new MainScreen());
 //	app.setMainWindow(new MainScreen());
     }
     
