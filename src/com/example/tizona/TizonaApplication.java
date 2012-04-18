@@ -12,6 +12,7 @@ public class TizonaApplication extends Application {
 
 	// Redirect to login screen
 	setMainWindow(new TizonaWindow());
+	setTheme("tizonatheme");
 
     }
 

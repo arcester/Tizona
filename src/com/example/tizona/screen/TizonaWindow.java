@@ -31,7 +31,7 @@ public class TizonaWindow extends Window {
 	// Create the subwindow
 	subwindow = new Window(StringsContainer.getString("tizona.login.titulo"));
 	subwindow.setClosable(false);
-	subwindow.setWidth("325px");
+	subwindow.setWidth("335px");
 	subwindow.setHeight("130px");
 	subwindow.setResizable(false);
 	subwindow.setDraggable(false);

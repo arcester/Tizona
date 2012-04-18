@@ -1,0 +1,10 @@
+@import url(../reindeer/styles.css);
+
+/* Cabecera de la pantalla principal */
+
+.v-gridlayout-principal-cabecera-grid .v-gridlayout-margin-left   {padding-left:   10px;}
+.v-gridlayout-principal-cabecera-grid .v-gridlayout-margin-right  {padding-right:  10px;}
+.v-gridlayout-principal-cabecera-grid .v-gridlayout-margin-top    {padding-top:    5px; }
+.v-gridlayout-principal-cabecera-grid .v-gridlayout-margin-bottom {padding-bottom: 5px; }
+
+.v-button-principal-cabecera-salir .v-button-caption {color:red;}
