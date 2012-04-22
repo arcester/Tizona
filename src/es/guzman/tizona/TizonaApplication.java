@@ -1,7 +1,8 @@
-package com.example.tizona;
+package es.guzman.tizona;
 
-import com.example.tizona.screen.TizonaWindow;
 import com.vaadin.Application;
+
+import es.guzman.tizona.screen.TizonaWindow;
 
 public class TizonaApplication extends Application {
 

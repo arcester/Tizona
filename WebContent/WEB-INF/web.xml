@@ -14,13 +14,13 @@
 			<description>
 			Vaadin application class to start</description>
 			<param-name>application</param-name>
-			<param-value>com.example.tizona.TizonaApplication</param-value>
+			<param-value>es.guzman.tizona.TizonaApplication</param-value>
 		</init-param>
 		<init-param>
 			<description>
 			Application widgetset</description>
 			<param-name>widgetset</param-name>
-			<param-value>com.example.tizona.widgetset.TizonaWidgetset</param-value>
+			<param-value>es.guzman.tizona.widgetset.TizonaWidgetset</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>

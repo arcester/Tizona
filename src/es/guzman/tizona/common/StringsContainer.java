@@ -1,4 +1,4 @@
-package com.example.tizona.common;
+package es.guzman.tizona.common;
 
 import java.util.ResourceBundle;
 

@@ -1,6 +1,5 @@
-package com.example.tizona.screen;
+package es.guzman.tizona.screen;
 
-import com.example.tizona.common.StringsContainer;
 import com.vaadin.terminal.gwt.client.ui.AlignmentInfo.Bits;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
@@ -12,6 +11,8 @@ import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
+
+import es.guzman.tizona.common.StringsContainer;
 
 public class TizonaWindow extends Window {
 
