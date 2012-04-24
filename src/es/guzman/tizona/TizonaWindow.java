@@ -1,4 +1,4 @@
-package es.guzman.tizona.screen;
+package es.guzman.tizona;
 
 import com.vaadin.terminal.gwt.client.ui.AlignmentInfo.Bits;
 import com.vaadin.ui.Alignment;
@@ -13,6 +13,7 @@ import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
 import es.guzman.tizona.common.StringsContainer;
+import es.guzman.tizona.screen.MainScreen;
 
 public class TizonaWindow extends Window {
 

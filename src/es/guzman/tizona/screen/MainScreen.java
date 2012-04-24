@@ -14,6 +14,10 @@ import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.GridLayout;
+import com.vaadin.ui.PopupView;
+import com.vaadin.ui.PopupView.PopupVisibilityEvent;
+import com.vaadin.ui.PopupView.PopupVisibilityListener;
+import com.vaadin.ui.Window.Notification;
 import com.vaadin.ui.VerticalSplitPanel;
 
 import es.guzman.tizona.common.StringsContainer;
@@ -30,6 +34,9 @@ public class MainScreen extends CustomComponent {
 
     // Common objects
     private AnimatorProxy proxy = new AnimatorProxy();
+    
+    // Filtro principal
+    private MainFilter filter;
 
     /**
      * The constructor should first build the main layout, set the composition
@@ -53,7 +60,12 @@ public class MainScreen extends CustomComponent {
 	// Creamos la cabecera
 	Component cabecera = hazCabecera();
 	verticalSplitPanelPrincipal.setFirstComponent(cabecera);
-	proxy.animate(cabecera, AnimType.FADE_IN).setDuration(300).setDelay(0);
+	proxy.animate(cabecera, AnimType.FADE_IN).setDuration(500).setDelay(0);
+	
+	// Creamos el contenido
+	MainTabsContainer tabs = new MainTabsContainer();
+	verticalSplitPanelPrincipal.setSecondComponent(tabs);
+	proxy.animate(tabs, AnimType.ROLL_DOWN_OPEN).setDuration(300).setDelay(0);
 	
     }
 
@@ -80,7 +92,7 @@ public class MainScreen extends CustomComponent {
 	
 	return mainLayout;
     }
-
+    
     private Component hazCabecera() {
 	
 	GridLayout grid = new GridLayout(3,1);
@@ -89,8 +101,6 @@ public class MainScreen extends CustomComponent {
 	grid.setMargin(true);
 	grid.setWidth("100%");
 	grid.setHeight("100%");
-	
-//	grid.addStyleName(style)
 	
 	Button botonSalir = new Button(StringsContainer.getString("tizona.principal.logout"));
 	botonSalir.addStyleName("principal-cabecera-salir");
@@ -104,12 +114,48 @@ public class MainScreen extends CustomComponent {
 	grid.setComponentAlignment(botonSalir, new Alignment(Bits.ALIGNMENT_VERTICAL_CENTER
 		| Bits.ALIGNMENT_LEFT));
 	
+	// Etiqueta principal
+	filter = new MainFilter();
+        PopupView popup = new PopupView(filter);
+        popup.setDescription("Click to edit");
+        popup.setHideOnMouseOut(false);
+        popup.setStyleName("principal-cabecera-informacion ");
+        popup.addListener(new PopupVisibilityListener() {
+	    @Override
+	    public void popupVisibilityChange(PopupVisibilityEvent event) {
+		// Cerramos el popup, actualizar
+		if (!event.isPopupVisible()) {
+		    doActualiza();
+		}
+	    }
+	});
+        grid.addComponent(popup, 1, 0);
+	grid.setComponentAlignment(popup, new Alignment(Bits.ALIGNMENT_VERTICAL_CENTER
+		| Bits.ALIGNMENT_HORIZONTAL_CENTER));
+	
 	return grid;
 	
     }
     
     private void doLogout() { 
 	getApplication().close();
+//	ConfirmDialog dialog = ConfirmDialog.show(getApplication().getMainWindow(), "¿Salir?", "¿Está seguro que desea salir?", "Sí", "No", new ConfirmDialog.Listener() {
+//	    
+//	    @Override
+//	    public void onClose(ConfirmDialog dialog) {
+//		if (dialog.isConfirmed()) {
+//		    getApplication().close();
+//		}
+//	    }
+//	});
     }
+ 
+    /**
+     * Método llamado al actualizar
+     */
+    private void doActualiza() {
+        getWindow().showNotification("Cerrando filtro, actualizando listado", Notification.TYPE_HUMANIZED_MESSAGE);
+    }
+    
     
 }

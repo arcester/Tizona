@@ -8,3 +8,5 @@
 .v-gridlayout-principal-cabecera-grid .v-gridlayout-margin-bottom {padding-bottom: 5px; }
 
 .v-button-principal-cabecera-salir .v-button-caption {color:red;}
+
+.v-popupview-principal-cabecera-informacion {font-size: large; font-weight: bold;}
