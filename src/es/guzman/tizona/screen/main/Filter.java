@@ -1,4 +1,4 @@
-package es.guzman.tizona.screen;
+package es.guzman.tizona.screen.main;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -15,8 +15,9 @@ import com.vaadin.ui.PopupView;
 import com.vaadin.ui.VerticalLayout;
 
 import es.guzman.tizona.common.Constantes;
+import es.guzman.tizona.common.StringsContainer;
 
-public class MainFilter implements PopupView.Content {
+public class Filter implements PopupView.Content {
 
     // Componentes visuales
     private ComboBox centros = new ComboBox();
@@ -31,7 +32,7 @@ public class MainFilter implements PopupView.Content {
     private String sServicio;
     private String sFecha;
     
-    public MainFilter() {
+    public Filter() {
 	
 	root.setSizeUndefined();
 	root.setSpacing(true);
@@ -103,17 +104,19 @@ public class MainFilter implements PopupView.Content {
 
 	VerticalLayout layoutCombos = new VerticalLayout();
 	layoutCombos.setSpacing(true);
+	layoutCombos.setMargin(false, true, false, false);
 	root.addComponent(layoutCombos);
-	layoutCombos.addComponent(new Label("Centro:"));
+	layoutCombos.addComponent(new Label(StringsContainer.getString("tizona.principal.filtro.centro")));
 	layoutCombos.addComponent(centros);
-	layoutCombos.addComponent(new Label("Servicio:"));
+	layoutCombos.addComponent(new Label(StringsContainer.getString("tizona.principal.filtro.servicio")));
 	layoutCombos.addComponent(servicios);
-	layoutCombos.addComponent(new Label("Zona:"));
+	layoutCombos.addComponent(new Label(StringsContainer.getString("tizona.principal.filtro.zona")));
 	layoutCombos.addComponent(zonas);
-	layoutCombos.addComponent(new Label("Agenda:"));
+	layoutCombos.addComponent(new Label(StringsContainer.getString("tizona.principal.filtro.agenda")));
 	layoutCombos.addComponent(agendas);
 
 	VerticalLayout layoutFecha = new VerticalLayout();
+	layoutFecha.setMargin(false, false, false, true);
 	root.addComponent(layoutFecha);
 	layoutFecha.addComponent(new Label("Fecha:"));
 	layoutFecha.addComponent(fecha);

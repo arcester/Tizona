@@ -1,4 +1,4 @@
-package es.guzman.tizona.screen;
+package es.guzman.tizona.screen.main;
 
 
 import com.vaadin.terminal.ThemeResource;
@@ -12,7 +12,7 @@ import com.vaadin.ui.TabSheet.Tab;
 import com.vaadin.ui.VerticalLayout;
 
 @SuppressWarnings("serial")
-public class MainTabsContainer extends VerticalLayout implements
+public class CopyOfTabsContainer extends VerticalLayout implements
         TabSheet.SelectedTabChangeListener, Button.ClickListener {
     
     private static final ThemeResource iconFavoritos = new ThemeResource(
@@ -27,7 +27,7 @@ public class MainTabsContainer extends VerticalLayout implements
     @SuppressWarnings("unused")
     private Tab t1, t2, t3;
 
-    public MainTabsContainer() {
+    public CopyOfTabsContainer() {
         setSpacing(true);
 //        setMargin(true);
         

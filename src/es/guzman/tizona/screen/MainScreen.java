@@ -21,6 +21,8 @@ import com.vaadin.ui.Window.Notification;
 import com.vaadin.ui.VerticalSplitPanel;
 
 import es.guzman.tizona.common.StringsContainer;
+import es.guzman.tizona.screen.main.Filter;
+import es.guzman.tizona.screen.main.TabsContainer;
 
 public class MainScreen extends CustomComponent {
 
@@ -36,7 +38,7 @@ public class MainScreen extends CustomComponent {
     private AnimatorProxy proxy = new AnimatorProxy();
     
     // Filtro principal
-    private MainFilter filter;
+    private Filter filter;
 
     /**
      * The constructor should first build the main layout, set the composition
@@ -63,9 +65,9 @@ public class MainScreen extends CustomComponent {
 	proxy.animate(cabecera, AnimType.FADE_IN).setDuration(500).setDelay(0);
 	
 	// Creamos el contenido
-	MainTabsContainer tabs = new MainTabsContainer();
+	TabsContainer tabs = new TabsContainer();
 	verticalSplitPanelPrincipal.setSecondComponent(tabs);
-	proxy.animate(tabs, AnimType.ROLL_DOWN_OPEN).setDuration(300).setDelay(0);
+//	proxy.animate(tabs, AnimType.ROLL_DOWN_OPEN).setDuration(500).setDelay(100);
 	
     }
 
@@ -115,7 +117,7 @@ public class MainScreen extends CustomComponent {
 		| Bits.ALIGNMENT_LEFT));
 	
 	// Etiqueta principal
-	filter = new MainFilter();
+	filter = new Filter();
         PopupView popup = new PopupView(filter);
         popup.setDescription("Click to edit");
         popup.setHideOnMouseOut(false);
@@ -154,7 +156,7 @@ public class MainScreen extends CustomComponent {
      * Método llamado al actualizar
      */
     private void doActualiza() {
-        getWindow().showNotification("Cerrando filtro, actualizando listado", Notification.TYPE_HUMANIZED_MESSAGE);
+        getWindow().showNotification(StringsContainer.getString("tizona.principal.filtro.actualizando"), Notification.TYPE_HUMANIZED_MESSAGE);
     }
     
     
