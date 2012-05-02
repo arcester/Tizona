@@ -1,5 +1,6 @@
 package es.guzman.tizona.screen;
 
+import org.vaadin.dialogs.ConfirmDialog;
 import org.vaadin.jouni.animator.AnimatorProxy;
 import org.vaadin.jouni.animator.client.ui.VAnimatorProxy.AnimType;
 
@@ -18,7 +19,6 @@ import com.vaadin.ui.PopupView;
 import com.vaadin.ui.PopupView.PopupVisibilityEvent;
 import com.vaadin.ui.PopupView.PopupVisibilityListener;
 import com.vaadin.ui.VerticalSplitPanel;
-import com.vaadin.ui.Window.Notification;
 
 import es.guzman.tizona.common.StringsContainer;
 import es.guzman.tizona.screen.main.Filter;
@@ -111,19 +111,17 @@ public class MainScreen extends CustomComponent {
     }
 
     private void doLogout() {
-	getApplication().close();
-	// ConfirmDialog dialog =
-	// ConfirmDialog.show(getApplication().getMainWindow(), "¿Salir?",
-	// "¿Está seguro que desea salir?", "Sí", "No", new
-	// ConfirmDialog.Listener() {
-	//
-	// @Override
-	// public void onClose(ConfirmDialog dialog) {
-	// if (dialog.isConfirmed()) {
-	// getApplication().close();
-	// }
-	// }
-	// });
+	 getApplication().close();
+//	ConfirmDialog dialog = ConfirmDialog.show(getApplication().getMainWindow(), "¿Salir?",
+//		"¿Está seguro que desea salir?", "Sí", "No", new ConfirmDialog.Listener() {
+//
+//		    @Override
+//		    public void onClose(ConfirmDialog dialog) {
+//			if (dialog.isConfirmed()) {
+//			    getApplication().close();
+//			}
+//		    }
+//		});
     }
 
     /**
@@ -141,11 +139,11 @@ public class MainScreen extends CustomComponent {
 	mainLayout.setWidth("100%");
 	mainLayout.setHeight("100%");
 	mainLayout.setMargin(false);
-	
+
 	// top-level component properties
 	setWidth("100.0%");
 	setHeight("100.0%");
-	
+
 	// verticalSplitPanelPrincipal
 	verticalSplitPanelPrincipal = new VerticalSplitPanel();
 	verticalSplitPanelPrincipal.setImmediate(false);
@@ -153,7 +151,7 @@ public class MainScreen extends CustomComponent {
 	verticalSplitPanelPrincipal.setHeight("100.0%");
 	verticalSplitPanelPrincipal.setMargin(false);
 	mainLayout.addComponent(verticalSplitPanelPrincipal, "top:0.0px;left:0.0px;");
-	
+
 	return mainLayout;
     }
 
