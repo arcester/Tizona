@@ -16,7 +16,7 @@ import com.vaadin.ui.VerticalLayout;
 
 import es.horus.g2common.beans.ui.PrincipalBean;
 
-public class TabFavoritos extends VerticalLayout {
+public class TabUrgencias extends VerticalLayout {
 
     private static final ThemeResource ICONO_FAVORITO = new ThemeResource("../tizonatheme/iconos/star.png");
     private static final ThemeResource ICONO_FAVORITO_DESACTIVADO = new ThemeResource(
@@ -29,7 +29,7 @@ public class TabFavoritos extends VerticalLayout {
     
     private TabsContainer parent;
 
-    public TabFavoritos(TabsContainer t) {
+    public TabUrgencias(TabsContainer t) {
 
 	this.parent = t;
 	
@@ -51,7 +51,7 @@ public class TabFavoritos extends VerticalLayout {
 	table.setContainerDataSource(getContainer());
 
 	// Column alignment
-//	table.setColumnAlignment(COLUMNA_NHC, Table.ALIGN_CENTER);
+	table.setColumnAlignment(COLUMNA_TRIAJE, Table.ALIGN_CENTER);
 
 	// Column width
 	table.setColumnExpandRatio(COLUMNA_OBSERVACIONES, 1);
@@ -70,6 +70,8 @@ public class TabFavoritos extends VerticalLayout {
     public static final Object COLUMNA_SEXO = "sexo";
     public static final Object COLUMNA_NOMBRE = "nombre";
     public static final Object COLUMNA_FECHA = "fecha";
+    public static final Object COLUMNA_ZONA = "zona";
+    public static final Object COLUMNA_TRIAJE = "triaje";
     public static final Object COLUMNA_OBSERVACIONES = "observaciones";
     public static final Object COLUMNA_ACCIONES = "acciones";
 
@@ -80,11 +82,13 @@ public class TabFavoritos extends VerticalLayout {
 	container.addContainerProperty(COLUMNA_SEXO, String.class, null);
 	container.addContainerProperty(COLUMNA_NOMBRE, String.class, null);
 	container.addContainerProperty(COLUMNA_FECHA, String.class, null);
+	container.addContainerProperty(COLUMNA_ZONA, String.class, null);
+	container.addContainerProperty(COLUMNA_TRIAJE, String.class, null);
 	container.addContainerProperty(COLUMNA_OBSERVACIONES, String.class, null);
 	container.addContainerProperty(COLUMNA_ACCIONES, HorizontalLayout.class, null);
 
 	PrincipalBean bean;
-	for (int i = 0; i < 20; i++) {
+	for (int i = 0; i < 50; i++) {
 
 	    bean = new PrincipalBean();
 	    bean.setIdPaciente(Integer.toString(i));
@@ -92,6 +96,8 @@ public class TabFavoritos extends VerticalLayout {
 	    bean.setSexo(i % 2 == 0 ? "H" : "M");
 	    bean.setFecha("hoy");
 	    bean.setHistoria("NHC" + i);
+	    bean.setCama("cama " + i);
+	    bean.setTriaje(Integer.toString(new Double(Math.random() * 4).intValue() + 1));
 	    bean.setObservaciones("observaciones superlargas larguisimas de la muerte, a ver si salen correctamente o no "
 		    + i);
 
@@ -178,6 +184,8 @@ public class TabFavoritos extends VerticalLayout {
 	    item.getItemProperty(COLUMNA_NHC).setValue(bean.getHistoria());
 	    item.getItemProperty(COLUMNA_SEXO).setValue(bean.getSexo());
 	    item.getItemProperty(COLUMNA_FECHA).setValue(bean.getFecha());
+	    item.getItemProperty(COLUMNA_ZONA).setValue(bean.getCama());
+	    item.getItemProperty(COLUMNA_TRIAJE).setValue(bean.getTriaje());
 	    item.getItemProperty(COLUMNA_OBSERVACIONES).setValue(bean.getObservaciones());
 	    item.getItemProperty(COLUMNA_ACCIONES).setValue(filaBotones);
 	}

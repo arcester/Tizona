@@ -16,7 +16,7 @@ import com.vaadin.ui.VerticalLayout;
 
 import es.horus.g2common.beans.ui.PrincipalBean;
 
-public class TabFavoritos extends VerticalLayout {
+public class TabConsulta extends VerticalLayout {
 
     private static final ThemeResource ICONO_FAVORITO = new ThemeResource("../tizonatheme/iconos/star.png");
     private static final ThemeResource ICONO_FAVORITO_DESACTIVADO = new ThemeResource(
@@ -29,7 +29,7 @@ public class TabFavoritos extends VerticalLayout {
     
     private TabsContainer parent;
 
-    public TabFavoritos(TabsContainer t) {
+    public TabConsulta(TabsContainer t) {
 
 	this.parent = t;
 	
@@ -69,6 +69,7 @@ public class TabFavoritos extends VerticalLayout {
     public static final Object COLUMNA_NHC = "nhc/tsi";
     public static final Object COLUMNA_SEXO = "sexo";
     public static final Object COLUMNA_NOMBRE = "nombre";
+    public static final Object COLUMNA_AGENDA = "agenda";
     public static final Object COLUMNA_FECHA = "fecha";
     public static final Object COLUMNA_OBSERVACIONES = "observaciones";
     public static final Object COLUMNA_ACCIONES = "acciones";
@@ -79,6 +80,7 @@ public class TabFavoritos extends VerticalLayout {
 	container.addContainerProperty(COLUMNA_NHC, String.class, null);
 	container.addContainerProperty(COLUMNA_SEXO, String.class, null);
 	container.addContainerProperty(COLUMNA_NOMBRE, String.class, null);
+	container.addContainerProperty(COLUMNA_AGENDA, String.class, null);
 	container.addContainerProperty(COLUMNA_FECHA, String.class, null);
 	container.addContainerProperty(COLUMNA_OBSERVACIONES, String.class, null);
 	container.addContainerProperty(COLUMNA_ACCIONES, HorizontalLayout.class, null);
@@ -92,6 +94,7 @@ public class TabFavoritos extends VerticalLayout {
 	    bean.setSexo(i % 2 == 0 ? "H" : "M");
 	    bean.setFecha("hoy");
 	    bean.setHistoria("NHC" + i);
+	    bean.setAgendaCode("AGE" + new Double(Math.random() * 3).intValue());
 	    bean.setObservaciones("observaciones superlargas larguisimas de la muerte, a ver si salen correctamente o no "
 		    + i);
 
@@ -177,6 +180,7 @@ public class TabFavoritos extends VerticalLayout {
 	    item.getItemProperty(COLUMNA_NOMBRE).setValue(bean.getNombre());
 	    item.getItemProperty(COLUMNA_NHC).setValue(bean.getHistoria());
 	    item.getItemProperty(COLUMNA_SEXO).setValue(bean.getSexo());
+	    item.getItemProperty(COLUMNA_AGENDA).setValue(bean.getAgendaCode());
 	    item.getItemProperty(COLUMNA_FECHA).setValue(bean.getFecha());
 	    item.getItemProperty(COLUMNA_OBSERVACIONES).setValue(bean.getObservaciones());
 	    item.getItemProperty(COLUMNA_ACCIONES).setValue(filaBotones);

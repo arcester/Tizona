@@ -16,7 +16,7 @@ import com.vaadin.ui.VerticalLayout;
 
 import es.horus.g2common.beans.ui.PrincipalBean;
 
-public class TabFavoritos extends VerticalLayout {
+public class TabHospitalizados extends VerticalLayout {
 
     private static final ThemeResource ICONO_FAVORITO = new ThemeResource("../tizonatheme/iconos/star.png");
     private static final ThemeResource ICONO_FAVORITO_DESACTIVADO = new ThemeResource(
@@ -29,7 +29,7 @@ public class TabFavoritos extends VerticalLayout {
     
     private TabsContainer parent;
 
-    public TabFavoritos(TabsContainer t) {
+    public TabHospitalizados(TabsContainer t) {
 
 	this.parent = t;
 	
@@ -70,6 +70,7 @@ public class TabFavoritos extends VerticalLayout {
     public static final Object COLUMNA_SEXO = "sexo";
     public static final Object COLUMNA_NOMBRE = "nombre";
     public static final Object COLUMNA_FECHA = "fecha";
+    public static final Object COLUMNA_CAMA = "cama";
     public static final Object COLUMNA_OBSERVACIONES = "observaciones";
     public static final Object COLUMNA_ACCIONES = "acciones";
 
@@ -80,6 +81,7 @@ public class TabFavoritos extends VerticalLayout {
 	container.addContainerProperty(COLUMNA_SEXO, String.class, null);
 	container.addContainerProperty(COLUMNA_NOMBRE, String.class, null);
 	container.addContainerProperty(COLUMNA_FECHA, String.class, null);
+	container.addContainerProperty(COLUMNA_CAMA, String.class, null);
 	container.addContainerProperty(COLUMNA_OBSERVACIONES, String.class, null);
 	container.addContainerProperty(COLUMNA_ACCIONES, HorizontalLayout.class, null);
 
@@ -91,6 +93,7 @@ public class TabFavoritos extends VerticalLayout {
 	    bean.setNombre("paciente " + i);
 	    bean.setSexo(i % 2 == 0 ? "H" : "M");
 	    bean.setFecha("hoy");
+	    bean.setCama("cama " + i);
 	    bean.setHistoria("NHC" + i);
 	    bean.setObservaciones("observaciones superlargas larguisimas de la muerte, a ver si salen correctamente o no "
 		    + i);
@@ -178,6 +181,7 @@ public class TabFavoritos extends VerticalLayout {
 	    item.getItemProperty(COLUMNA_NHC).setValue(bean.getHistoria());
 	    item.getItemProperty(COLUMNA_SEXO).setValue(bean.getSexo());
 	    item.getItemProperty(COLUMNA_FECHA).setValue(bean.getFecha());
+	    item.getItemProperty(COLUMNA_CAMA).setValue(bean.getCama());
 	    item.getItemProperty(COLUMNA_OBSERVACIONES).setValue(bean.getObservaciones());
 	    item.getItemProperty(COLUMNA_ACCIONES).setValue(filaBotones);
 	}

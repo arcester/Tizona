@@ -10,3 +10,13 @@
 .v-button-principal-cabecera-salir .v-button-caption {color:red;}
 
 .v-popupview-principal-cabecera-informacion {font-size: large; font-weight: bold;}
+
+/* botón de favorito, alertas, notas y procesos */
+.v-nativebutton-principal-fila-boton {border-width: 0px; background: transparent;}
+.v-nativebutton-principal-fila-boton .v-nativebutton-caption {font-size: x-small; vertical-align:bottom;}
+.v-nativebutton-principal-fila-boton-cero {border-width: 0px; background: transparent;}
+.v-nativebutton-principal-fila-boton-cero .v-nativebutton-caption {font-size: x-small; vertical-align:bottom; color: #E6E6E6;}
+
+/* botón de episodios actuales */
+.v-nativebutton-principal-fila-boton-actual {border-width: 0px; background: transparent;}
+.v-nativebutton-principal-fila-boton-actual .v-nativebutton-caption {font-size: large; vertical-align:bottom;}
