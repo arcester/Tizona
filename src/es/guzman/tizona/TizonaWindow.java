@@ -15,6 +15,12 @@ import com.vaadin.ui.Window;
 import es.guzman.tizona.common.StringsContainer;
 import es.guzman.tizona.screen.MainScreen;
 
+/**
+ * Clase principal de visualización
+ * 
+ * @author guzman
+ *
+ */
 public class TizonaWindow extends Window {
 
     private Window subwindow;

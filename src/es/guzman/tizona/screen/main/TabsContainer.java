@@ -75,7 +75,7 @@ public class TabsContainer extends TabSheet implements TabSheet.SelectedTabChang
     }
 
     public void onTabClose(TabSheet tabsheet, Component tabContent) {
-	getWindow().showNotification("Closed tab: " + tabsheet.getTab(tabContent).getCaption());
+//	getWindow().showNotification("Closed tab: " + tabsheet.getTab(tabContent).getCaption());
 	tabsheet.removeComponent(tabContent);
 	actualPatientTabs--;
     }
