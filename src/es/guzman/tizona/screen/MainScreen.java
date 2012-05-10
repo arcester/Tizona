@@ -1,6 +1,5 @@
 package es.guzman.tizona.screen;
 
-import org.vaadin.dialogs.ConfirmDialog;
 import org.vaadin.jouni.animator.AnimatorProxy;
 import org.vaadin.jouni.animator.client.ui.VAnimatorProxy.AnimType;
 
